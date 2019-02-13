@@ -27,8 +27,14 @@ The user should be able to:
 **7. See the details of a movie.**\
 **8. Add new movies.**\
 **9. Update existing movies.**\
-**10. Delete movies.**\
+**10. Delete movies.**
 
+## Purpose
+
+- Build a CRUD app
+- Get comfortable building the routes with the different verbs
+- Practice preparing the data to be displayed in the templates
+- Very extensive exercice
 
 ## Requirements
 
@@ -52,7 +58,7 @@ $ git push origin master
 
 ### Iteration 0 | Initialize the project
 
-After forking and cloning the project, you will have to add a `starter_code/.env` file:
+After forking and cloning the project, you will have to add a `.env` file:
 
 ```
 PORT=3000
@@ -62,7 +68,6 @@ And you have to install all the dependencies:
 
 
 ```sh
-$ cd starter_code
 $ npm install
 ```
 
@@ -114,17 +119,17 @@ Here's the route we will be using:
     - If there isn't an error, render the `celebrities/index` view.
     - Pass the array of celebrities into the view as a variable.
 3. Create the `celebrities/` folder inside `views/`.
-4. Create the `index.hbs` view file inside the `views/celebrities/` folder.
-5. In the `views/celebrities/index.hbs` view file:
+4. Create the `index` view file inside the `views/celebrities/` folder.
+5. In the `views/celebrities/index` view file:
     - Add an `<h2>` tag for the page's heading.
     - Use a `forEach` loop to display tags with each celebrity's `name`.
-6. In the `views/index.hbs` (homepage) file:
+6. In the `views/index` (homepage) file:
     - Add a link that goes to the `/celebrities` route.
 
 
 ## Iteration #3: The Celebrity Details Page
 
-We've got a list of celebrities that displays each of their `name`, but what if we want to see the other details? In our `views/celebrities/index.hbs` view with our list of celebrities, let's add links so that the user can click on any celebrity's name, and go to a page specifically for that celebrity.  On this page, we will show all the details of that celebrity.
+We've got a list of celebrities that displays each of their `name`, but what if we want to see the other details? In our `views/celebrities/index` view with our list of celebrities, let's add links so that the user can click on any celebrity's name, and go to a page specifically for that celebrity.  On this page, we will show all the details of that celebrity.
 
 Here's the route we will be using:
 
@@ -141,11 +146,11 @@ Here's the route we will be using:
     - If there's an error, call the route's `next` function and return the error.
     - If there isn't an error, render the `celebrities/show` view.
     - Pass the variable with the celebrity's details into the view.
-3. Create the `show.hbs` view file inside the `views/celebrities/` folder.
-4. In the `views/celebrities/show.hbs` view file:
+3. Create the `show` view file inside the `views/celebrities/` folder.
+4. In the `views/celebrities/show` view file:
     - Add an `<h2>` for the page's heading.
     - Display tags with the celebrity's `name`, `occupation` and `catchPhrase`.
-6. In the `views/celebrities/index.hbs` view file:
+6. In the `views/celebrities/index` view file:
     - As part of the loop that displays each celebrity's name, add a link that goes to the `/celebrities/:id` route with the `:id` replaced by the actual celebrity's id.
 
 ## Iteration #4: Adding New Celebrities
@@ -162,8 +167,8 @@ Now that we have a list of celebrities, as well as a personalized details page f
 1. Locate the `/celebrities/new` GET route in `routes/celebrities.js`:
 2. In that route's callback:
   - Render the `celebrities/new` view.
-3. Create the `new.hbs` view file inside the `views/celebrities` folder
-4. In the `views/celebrities/new.hbs` view file:
+3. Create the `new` view file inside the `views/celebrities` folder
+4. In the `views/celebrities/new` view file:
    - Add an `<h2>` for the page's heading.
    - Add a `<form>` tag that makes a POST request to `/celebrities`.
    - Add `<input>` tags inside the form so the user can fill in values for each attribute of the celebrity.  Make an input for `name`, `occupation`, and `catchPhrase`
@@ -176,7 +181,7 @@ Now that we have a list of celebrities, as well as a personalized details page f
     - Call the `save` method to save the new celebrity to the database
     - If there is an error, render the `celebrities/new` view so the user can try again.
     - If there is no error, redirect to the page with the list of celebrities
-7. In the `views/celebrities/index.hbs` view file:
+7. In the `views/celebrities/index` view file:
     - Add a link that goes to the page you just created with the form to create a new celebrity.
 
 ## Iteration #5: Deleting Celebrities
@@ -189,7 +194,7 @@ Now that we have a list of celebrities, a celebrity details page, and a page to 
 
 ### Steps we will follow in this iteration:
 
-1. In the `views/celebrities/index.hbs` file:
+1. In the `views/celebrities/index` file:
     - As part of the loop, add a `<form>` tag that makes a POST request to `celebrities/:id/delete` where the `:id` is replaced by the actual `id` of each celebrity.
     - Add a `<button>` tag inside the form so that it can be submitted.
 2. Create the `/celebrities/:id/delete` POST route in your `routes/celebrities.js` file
@@ -219,8 +224,8 @@ Here are the routes we will be using:
     - If there's an error, call the route's `next` function and return the error.
     - If there isn't an error, render the `celebrities/edit` view.
     - Pass the variable with the celebrity’s details into the view.
-3. Create the `edit.hbs` view file inside the `views/celebrities/` folder.
-4. In the `views/celebrities/edit.hbs` view file:
+3. Create the `edit` view file inside the `views/celebrities/` folder.
+4. In the `views/celebrities/edit` view file:
     - Add an `<h2>` tag for the page's heading.
     - Add a `<form>` tag that makes a POST request to `/celebrities/:id` with the `:id` replaced by the actual celebrity's id.
     - Add `<input>` tags inside the form for each attirbute of the celebrity.
