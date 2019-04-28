@@ -58,13 +58,15 @@ $ git push origin master
 
 ### Iteration 0 | Initialize the project
 
-After forking and cloning the project, you will have to add a `.env` file:
+After forking and cloning the project, you will have to run:
 
 ```
-PORT=3000
+express mongoose-movies --view=hbs --git
 ```
 
-And you have to install all the dependencies:
+Configurate all the files and other packages (mongoose, eslint, etc.)
+
+And remember to install all the dependencies:
 
 
 ```sh
