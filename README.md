@@ -67,7 +67,7 @@ The `Post` model should have:
 1. Create the `post.js` model file in the `models/` folder.
 2. In the `post.js` model file:
     - Create the `Post` model with the schema.
-    - Create the post schema with `title` and `descriptio`.
+    - Create the post schema with `title` and `description`.
     - Export the `Post` model.
 3. Create the `seeds.js` file in the `bin/` folder.
 4. In `seeds.js` file:
@@ -144,7 +144,10 @@ We are going to use Cloudinary. “Cloudinary provides a comprehensive cloud-bas
 
 1. Navigate to https://cloudinary.com/ and create your account.
 2. Create a `config` folder and inside create a `cloudinary.js` file where wi will store all the configuration needed.
-3. Configurate `multer`, `cloudinary`  and `multer-storage-cloudinary` as we've seen in class.
+3. Configurate `multer`, `cloudinary`  and `multer-storage-cloudinary` as we have seen in class.
+
+We recommend to see the next article if you have questions about the configuration (or check the documentation ;) ).
+https://medium.freecodecamp.org/how-to-allow-users-to-upload-images-with-node-express-mongoose-and-cloudinary-84cefbdff1d9
 
 ## Iteration #5: Update posts to add a post image
 
