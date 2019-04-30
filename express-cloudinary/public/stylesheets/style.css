@@ -10,3 +10,8 @@ a {
 .post-item{
   margin: 45px 25px;
 }
+
+.message-error{
+  background-color: yellow;
+  color: red;
+}

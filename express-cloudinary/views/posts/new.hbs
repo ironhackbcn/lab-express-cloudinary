@@ -1,0 +1,13 @@
+<h2>Insert new post</h2>
+
+{{#if messageError}}
+  <div class="message-error">{{messageError}}</div>
+{{/if}}
+
+<form action="/posts" method="post">
+
+Title: <input type="text" name="title">
+Description: <input type="text" name="description">
+<button type="submit">Insert</button>
+
+</form>
