@@ -4,6 +4,21 @@ const express = require("express");
 const router = express.Router();
 const Post = require('./../models/post');
 
+/* GET posts/new */
+router.get('/new', (req, res, next) => {
+  res.render('posts/new');
+})
+
+/* POST posts */
+router.post('/', (req, res, next) => {
+  const { title, description } = req.body;
+  const newPost = new Post({ title, description });
+ 
+  newPost.save()
+    .then(() => res.redirect('/posts'))
+    .catch(() => res.render('posts/new'));
+})
+
 /* GET posts */
 router.get('/', (req, res, next) => {
   Post.find({})
