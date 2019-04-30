@@ -11,11 +11,23 @@ router.get('/', (req, res, next) => {
     .catch(error => console.log(error))
 });
 
-// router.get('/', (req, res, next) => {
-//   Post.find({})
-//     .then((posts) => res.render('posts/index', {posts}))
-//     .catch((error) => {console.log(error)});
-// });
+/************ GET FORM TO ADD NEW POST ************/
+
+router.get('/new', (req, res, next) => {
+  res.render('posts/new');
+})
+
+/******************  ADD NEW POST ******************/
+
+router.post('/', (req, res, next) => {
+  const {title, description} = req.body;
+  const newPost = new Post({title, description});
+  newPost.save()
+    .then(() => {res.redirect('/posts')})
+    .catch(() => {res.render('posts/new')})
+})
+
+
 
 
 module.exports = router;
