@@ -2,5 +2,6 @@
 {{#each allPostsFromDb}}
   <h4>{{this.title}}</h4>
   <p>{{this.description}}</p>
+  <img src="{{this.imageUrl}}">
 {{/each}}
 <a href="/posts/new">Add New Post</a>

@@ -20,8 +20,8 @@ router.get('/new', (req, res, next) => {
 /******************  ADD NEW POST ******************/
 
 router.post('/', (req, res, next) => {
-  const {title, description} = req.body;
-  const newPost = new Post({title, description});
+  const {title, description, imageUrl} = req.body;
+  const newPost = new Post({title, description, imageUrl});
   newPost.save()
     .then(() => {res.redirect('/posts')})
     .catch(() => {res.render('posts/new')})
