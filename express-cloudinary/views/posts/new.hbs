@@ -6,5 +6,8 @@
 <label for=''>description:</label>
 <input type='text' name='description'>
 <br>
+<form action='/api/images' method="post" enctype="multipart/form-data">
+  <input type='file' name='image' />
+</form>
 <button type='submit'>Create Post</button>
 </form>
