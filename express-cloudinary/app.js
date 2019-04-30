@@ -7,7 +7,7 @@ const mongoose = require('mongoose');
 
 const router = require('./routes/index');
 
-mongoose.connect(`mongodb://localhost/library`, {
+mongoose.connect(`mongodb://localhost/images-cloudinary`, {
   keepAlive: true,
   useNewUrlParser: true,
   reconnectTries: Number.MAX_VALUE
