@@ -1,0 +1,9 @@
+<h1>Posts</h1>
+
+{{#each allPostsFromDB}}
+  <h2>Title:</h2>
+  <p>{{this.title}}</p>
+  <h2>Post:</h2>
+  <p>{{this.description}}</p>
+  <img src="{{this.image}}">
+{{/each}}
