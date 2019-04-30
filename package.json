@@ -1,0 +1,23 @@
+{
+  "name": "lab-express-cloudinary",
+  "version": "1.0.0",
+  "description": "![logo_ironhack_blue 7](https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png)",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "nodemon ./bin/www",
+    "start": "node ./bin/www"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Liu-Ivy/lab-express-cloudinary.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Liu-Ivy/lab-express-cloudinary/issues"
+  },
+  "homepage": "https://github.com/Liu-Ivy/lab-express-cloudinary#readme",
+  "dependencies": {
+    "mongoose": "^5.5.5"
+  }
+}
