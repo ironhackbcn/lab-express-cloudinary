@@ -3,6 +3,7 @@
 const express = require("express");
 const router = express.Router();
 const Post = require('./../models/post');
+const parser = require('./../config/cloudinary')
 
 /* GET posts/new */
 router.get('/new', (req, res, next) => {
@@ -10,9 +11,11 @@ router.get('/new', (req, res, next) => {
 })
 
 /* POST posts */
-router.post('/', (req, res, next) => {
+router.post('/', parser.single("image"), (req, res, next) => {
+  console.log(req.file.secure_url);
+  const imageUrl = req.file.secure_url;
   const { title, description } = req.body;
-  const newPost = new Post({ title, description });
+  const newPost = new Post({ title, description, imageUrl });
  
   newPost.save()
     .then(() => res.redirect('/posts'))
