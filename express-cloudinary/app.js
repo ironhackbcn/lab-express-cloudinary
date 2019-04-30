@@ -1,6 +1,5 @@
 'use strict'
 
-const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -9,6 +8,16 @@ const logger = require('morgan');
 const router = require('./routes/index');
 
 const app = express();
+
+const dbName = 'messages';
+mongoose.connect(`mongodb://localhost/${dbName}`,
+  {
+    keepAlive: true,
+    useNewUrlParser: true,
+    reconnectTries: Number.MAX_VALUE
+  })
+  .then(()=> console.log('Connected to the database'))
+  .catch(() => console.log('Unable to establish database connection'))
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,20 +31,24 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', router);
 
-// catch 404 and forward to error handler
+// -- 404 and error handler
+
+// NOTE: requires a views/not-found.ejs template
 app.use((req, res, next) => {
-  next(createError(404));
+  res.status(404);
+  res.render('not-found');
 });
 
-// error handler
+// NOTE: requires a views/error.ejs template
 app.use((err, req, res, next) => {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
+  // always log the error
+  console.error('ERROR', req.method, req.path, err);
 
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
+  // only render if the error ocurred before sending the response
+  if (!res.headersSent) {
+    res.status(500);
+    res.render('error');
+  }
 });
 
 module.exports = app;

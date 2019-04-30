@@ -1,5 +1,11 @@
 'use strict';
 
+const mongoose = require('mongoose');
+const Post = require('../models/post');
+
+const dbName = 'messages';
+mongoose.connect(`mongodb://localhost/${dbName}`);
+
 const posts = [
   {
     title: 'What I did today',
@@ -15,4 +21,8 @@ const posts = [
   }
 ]
 
-module.exports = posts;
+Post.create(posts, (err) => {
+  if (err) { throw(err) }
+  console.log(`Created ${posts.length} posts`)
+  mongoose.connection.close();
+});
