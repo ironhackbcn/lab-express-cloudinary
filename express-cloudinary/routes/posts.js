@@ -13,4 +13,22 @@ Post.find()
 //GET '/post'
 router.get('/post');
 
+
+//GET 'posts/add'
+router.get("/new", function(req, res, next) {
+  res.render('posts/new');
+});
+
+//Post '/books/add'
+router.post("/new", function(req, res, next) {
+  console.log("req.body", req.body); 
+  const { title, description } = req.body;
+
+  const newPost = new Post({ title, description }); 
+  newPost
+    .save()
+    .then(book => res.redirect('/posts'))
+    .catch(err => console.log(err));
+});
+
 module.exports = router;
