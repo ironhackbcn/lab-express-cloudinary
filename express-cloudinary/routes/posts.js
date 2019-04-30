@@ -59,17 +59,32 @@ router.get(`/`, (req,res,next) => {
 
 router.post('/new', parser.single("image"), (req, res) => {
   console.log(req.file) // to see what is returned to you
-  const imageLink = req.file.url;
-  const {title, description} = req.body
-  const newPost = new Post({ title, description, imageLink });
+  if (!req.file){
+    const {title, description} = req.body
+    const newPost = new Post({ title, description});
+    
+    newPost.save()
+    .then(() => {
+      res.redirect('/posts'); //from the homeroute
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
+  else {
+    const imageLink = req.file.url;
+    const {title, description} = req.body
+    const newPost = new Post({ title, description, imageLink });
+    
+    newPost.save()
+    .then(() => {
+      res.redirect('/posts'); //from the homeroute
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
   
-  newPost.save()
-  .then(() => {
-    res.redirect('/posts'); //from the homeroute
-  })
-  .catch((error) => {
-    console.log(error);
-  });
 })
 
 
