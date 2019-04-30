@@ -1,0 +1,10 @@
+<h2>Posts</h2>
+{{#each allPostsFromDB}}
+  <h4>{{this.title}}</h4>
+  <p><em>"{{this.description}}"</em></p>
+  
+{{/each}}
+
+<a href="/posts/new">Create New Post</a> 
+<br/ >
+<a href="/">Home</a> 
