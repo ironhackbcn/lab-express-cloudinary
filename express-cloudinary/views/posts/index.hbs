@@ -4,9 +4,7 @@
         {{!-- <a href="/books/edit?_id={{this._id}}" class="edit-button">EDIT</a>
         <a href="/books/details/{{this._id}}">{{this.title}}</a>  --}}
     {{this.title}}
-    <br>
     {{this.description}}
-        <br>
-    {{this.imageUrl}}
     </p>
+    <img src={{this.imageUrl}}>
 {{/each}}
