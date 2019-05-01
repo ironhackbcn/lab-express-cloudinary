@@ -1,6 +1,7 @@
-
-{{#each allThePostFromDB}}
-    <h2>{{postCollection.title}}</h2>
-    <h2>{{postCollection.description}}</h2>
+<h2>Posts</h2>
+{{#each posts}}
+    <h4>{{this.title}}</h4>
+    <h4>{{this.description}}</h4>
 
 {{/each}}
+    <a href="/post/new">Create A New Post</a>

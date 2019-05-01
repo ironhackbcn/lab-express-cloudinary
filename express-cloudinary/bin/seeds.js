@@ -4,7 +4,7 @@ const Post = require('../model/PostModel');
 const dbName = 'dbPost';
 mongoose.connect(`mongodb://localhost/${dbName}`);
 
-const postCollection = [ {
+const posts = [ {
     title : " Kitten ",
     description: " This is a cute baby cat",
 },
@@ -18,8 +18,8 @@ const postCollection = [ {
 }
 ];
 
-Post.create(postCollection, (err) => {
+Post.create(posts, (err) => {
     if (err) { throw(err) }
-    console.log(`Created ${postCollection.length} postCollection`)
+    console.log(`Created ${posts.length} posts`)
     mongoose.connection.close();
   });
