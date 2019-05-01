@@ -18,8 +18,8 @@ router.post('/', parser.single("image"), (req, res, next) => {
 
   newPost = new Post({title, description, imageUrl});
   newPost.save()
-    .then( (res) => res.redirect('/posts'))
-    .catch( (res) => res.render('posts/new', {messageError:'There is a problem with the insertion'}));
+    .then( () => res.redirect('/posts'))
+    .catch( () => res.render('posts/new', {messageError:'There is a problem with the insertion'}));
 });
 
 
