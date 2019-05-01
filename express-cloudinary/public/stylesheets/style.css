@@ -1,0 +1,21 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+.post-item{
+  margin: 65px 25px;
+}
+
+.message-error{
+  background-color: yellow;
+  color: red;
+}
+
+img{
+  width: 500px;
+}

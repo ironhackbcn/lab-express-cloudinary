@@ -1,0 +1,14 @@
+<h2>Insert new post</h2>
+
+{{#if messageError}}
+  <div class="message-error">{{messageError}}</div>
+{{/if}}
+
+<form action="/posts" method="post" enctype="multipart/form-data">
+
+Title: <input type="text" name="title">
+Description: <input type="text" name="description">
+Image: <input type='file' name='image' />
+<button type="submit">Insert</button>
+
+</form>

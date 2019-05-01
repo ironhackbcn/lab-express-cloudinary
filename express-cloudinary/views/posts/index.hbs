@@ -1,0 +1,13 @@
+<h2>Post list:</h2>
+
+{{#each posts}}
+
+  <div class="post-item">
+    <p>Title: {{this.title}}</p>
+    <p>Description: {{this.description}}</p>
+    <p><img src="{{this.imageUrl}}" alt="{{this.title}}"></p>
+  </div>
+
+{{/each}}
+
+<a href="/posts/new">Add new post</a>
