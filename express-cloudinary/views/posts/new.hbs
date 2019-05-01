@@ -1,0 +1,18 @@
+{{!-- In the views/posts/new view file:
+Add an <h2> for the page's heading.
+Add a <form> tag that makes a POST request to /posts.
+Add <input> tags inside the form so the user can fill in values for each attribute of the post. Make an input for title and description
+Add a <button> tag in the form so the user can submit the form once they are done filling it out. --}}
+
+<h2>New Post</h2>
+<form action="/new" method="POST">
+  <label for="title">title</label><br>
+  <input type="text" name="title" placeholder="Post title">
+
+  <label for="description">description</label><br>
+  <input type="text" name="description" placeholder="description">
+
+  <button type="submit">Post it!</button>
+</form>
+
+<a href="/">Home</a>
