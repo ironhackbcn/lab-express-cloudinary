@@ -11,7 +11,7 @@ router.get('/', (req, res, next) => {
 
 // NEW posts
 router.get('/new', (req, res, next) =>{
-  res.render("/new");
+  res.render("posts/new");
 });
 
 router.post('/posts', (req, res, next) => {
