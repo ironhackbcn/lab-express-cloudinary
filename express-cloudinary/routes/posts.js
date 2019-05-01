@@ -12,8 +12,10 @@ router.get('/new', (req, res, next) => {
 
 /* POST posts */
 router.post('/', parser.single("image"), (req, res, next) => {
-  console.log(req.file.secure_url);
-  const imageUrl = req.file.secure_url;
+  let imageUrl = ""
+  if(req.file){
+    imageUrl = req.file.secure_url;
+  }
   const { title, description } = req.body;
   const newPost = new Post({ title, description, imageUrl });
  
