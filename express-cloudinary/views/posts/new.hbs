@@ -1,0 +1,14 @@
+<h2>New post</h2>
+<form action='/posts/new' method="POST" enctype="multipart/form-data">
+  <label for=''>Title:</label>
+  <input type='text' name='title'>
+  <br>
+  <label for=''>description:</label>
+  <input type='text' name='description'>
+  <br>
+  <form action='/api/images' method="post" enctype="multipart/form-data">
+    <input type='file' name='image' />
+    <br>
+  <button type='submit'>Create Post</button>
+  </form>
+</form>
